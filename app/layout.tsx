@@ -24,8 +24,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
 
   title: {
-    default: site.brandName,
-  },
+  default: site.brandName,
+  template: `%s | ${site.brandName}`,
+},
 
   description:
     "Local appliance repair in Watsonville, CA and the Pajaro Valley. Refrigerators, washers, dryers, dishwashers, ovens and more — same-day service, upfront pricing.",
