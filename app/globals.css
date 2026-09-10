@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { scroll-behavior:smooth; }
+body { background:#0b0c0d; color:#f5f2eb; }
+::selection { background:#d2aa55; color:#0b0c0d; }
+a,button,input,select,textarea { -webkit-tap-highlight-color:transparent; }
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid #d2aa55; outline-offset:3px; }
+* { border-color:#26292b; }
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Shine effect for CTA buttons */
+.btn-shine{position:relative;overflow:hidden}
+.btn-shine::after{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:luxuryShine 3.5s ease-in-out infinite;pointer-events:none}
+@keyframes luxuryShine{0%{left:-120%}45%,100%{left:140%}}
+
+.service-track{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;cursor:grab}
+.service-track::-webkit-scrollbar{display:none}
+.service-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.service-card{flex:0 0 calc((100% - 24px)/3);scroll-snap-align:start;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:1rem;background:rgba(255,255,255,.025);transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(210,170,85,.38);background:rgba(210,170,85,.045)}
+.service-card-image{position:relative;height:190px;overflow:hidden;background:#111}
+.service-card-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.service-card:hover .service-card-image img{transform:scale(1.06)}
+.service-number{position:absolute;top:14px;right:14px;border:1px solid rgba(210,170,85,.28);background:rgba(8,9,10,.78);backdrop-filter:blur(5px);border-radius:999px;padding:6px 9px;font:700 10px/1 system-ui,sans-serif;color:#d2aa55}
+.service-arrow{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.025);color:#f5f2eb;font-size:16px;transition:.2s ease}
+.service-arrow:hover{border-color:rgba(210,170,85,.5);color:#d2aa55;background:rgba(210,170,85,.06)}
+.service-dot{width:6px;height:6px;border:0;border-radius:999px;background:#444;transition:width .2s ease,background .2s ease}
+.service-dot.active{width:22px;background:#d2aa55}
+@media (max-width: 900px){.service-card{flex-basis:calc((100% - 12px)/2)}.service-track{gap:12px}}
+@media (max-width: 640px){.service-card{flex-basis:100%}.service-card-image{height:210px}.service-arrow{width:38px;height:38px}}
+.other-service-track{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;cursor:grab}
+.other-service-track::-webkit-scrollbar{display:none}
+.other-service-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.other-service-card{flex:0 0 calc((100% - 12px)/2);scroll-snap-align:start;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:1rem;background:rgba(255,255,255,.025);transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.other-service-card:hover{transform:translateY(-4px);border-color:rgba(210,170,85,.38);background:rgba(210,170,85,.045)}
+@media (max-width: 640px){.other-service-card{flex-basis:100%}}
+.other-service-card-image{position:relative;height:180px;overflow:hidden;background:#111}
+.other-service-card-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.other-service-card:hover .other-service-card-image img{transform:scale(1.06)}
+.other-service-arrow{display:grid;place-items:center;width:30px;height:30px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.025);color:#f5f2eb;font-size:13px;transition:.2s ease;flex-shrink:0}
+.other-service-arrow:hover{border-color:rgba(210,170,85,.5);color:#d2aa55;background:rgba(210,170,85,.06)}
+.other-service-dot{width:5px;height:5px;border:0;border-radius:999px;background:#444;transition:width .2s ease,background .2s ease}
+.other-service-dot.active{width:16px;background:#d2aa55}
